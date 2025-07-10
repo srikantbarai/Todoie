@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect,useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header";
+import Todoitem from "./components/Todoitem";
+import Button from "./components/Button";
+import CounterComponent from "./components/CounterComponent";
+import Mycomponent from "./components/Mycomponent";
+
+// import "./style.css"
+// const App = () => {
+//   return (
+//     <div className="todo-container">
+//       <Header title="Todo"/>
+//       <Todoitem text="Eat"/>
+//       <Todoitem completed={true} text="Code"/>
+//       <Todoitem text="Play"/>
+//       <Todoitem text="Study"/>
+//       <Button/>
+      
+//     </div>
+//   );
+// }
+
+// const App = () => {
+//   return (
+//     <div>
+//       <CounterComponent />
+//       <CounterComponent />
+//       <CounterComponent />
+//       <CounterComponent />
+//     </div>
+//   )
+// }
+
+const App = () => {
+    const [isVisble, setVisible] = useState(true);
+
+    useEffect(()=> {
+      console.log("App component is mounting");
+    },[]);
+
+    return (
+      <div>
+        <button onClick={() => setVisible(!isVisble)}>Toggle</button>
+        {isVisble ? <Mycomponent /> : <></>}
+      </div>
+    )
 }
 
 export default App;
